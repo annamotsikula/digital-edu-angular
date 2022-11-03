@@ -1,10 +1,40 @@
-<p>home works!</p>
+<div>
+    <div class="dashboard">
+        <div class="card" style="width: 18rem;">
+            <img [src]="student.img" class="card-img-top" alt="user photo">
+            <div class="card-body">
+              <h5 class="card-title" #getUser>Student name is: {{student.name}}</h5>
+              <p class="card-text">{{student.email}}</p>
+              <p class="card-text">Employ status: {{student.employed ? 'Employed' : 'Open to work'}}</p>
+              <p class="card-text">{{student.email}}</p>
+              <p class="card-text">Expected Salary: {{student.salary}}</p>
+              <p class="card-text">Expected Salary: {{student.company.name}}</p>
 
-<span>{{ name }}</span>
+              <button href="#" class="btn btn-primary" (click)="getEmployStatus(student)">Get Data</button>
+            </div>
+        </div>
+        <div class="user-action">
+            <span>Type something:</span>
+            <div class="mt-2">
+                <input type="text" [(ngModel)]="userInputName">
+                <button (click)="setUserName(userInputName)">Set Name</button>
+            </div>
+            <div class="mt-2">
+                <span>Is employed:</span>
+                <input type="checkbox" [(ngModel)]="student.employed">
+            </div>
+            <div class="mt-2">
+                <span>Select:</span>
+                <select [(ngModel)]="student.salary">
+                    <option selected default>Select minimum salary</option>
+                    <option value="1000">1000+</option>
+                    <option value="2500">2500+</option>
+                    <option value="3000">3k+</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <app-child [companyData]="student.company" (sentDataToParent)="receiveData($event)"></app-child>
 
-<p>{{ student.fistName }}</p>
-<p>{{ student.lastName }}</p>
-<p>{{ student.age }}</p>
-
-<button (click)="printUserName('Nick')">Click me</button>
+</div>
 
