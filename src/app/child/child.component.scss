@@ -1,6 +1,8 @@
 .details-block {
     display: flex;
     flex-direction: column;
+    border: 1px solid #ccc;
+    margin-left: 20px
 }
 span {
     display: block;

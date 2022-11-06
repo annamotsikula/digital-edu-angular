@@ -1,15 +1,14 @@
-<div>
+<div class="d-flex">
     <div class="dashboard">
         <div class="card" style="width: 18rem;">
             <img [src]="student.img" class="card-img-top" alt="user photo">
             <div class="card-body">
-              <h5 class="card-title" #getUser>Student name is: {{student.name}}</h5>
+              <h5 class="card-title" #getUser><b>Student name:</b>{{student.name}}</h5>
+              <p class="card-text"><b>Email:</b>{{student.email}}</p>
+              <p class="card-text"><b>Emploee Status:</b> {{student.employed ? 'Employed' : 'Open to work'}}</p>
               <p class="card-text">{{student.email}}</p>
-              <p class="card-text">Employ status: {{student.employed ? 'Employed' : 'Open to work'}}</p>
-              <p class="card-text">{{student.email}}</p>
-              <p class="card-text">Expected Salary: {{student.salary}}</p>
-              <p class="card-text">Expected Salary: {{student.company.name}}</p>
-
+              <p class="card-text"><b>Expected Salary:</b> {{student.salary}}</p>
+              <p class="card-text"><b>Company Name:</b> {{student.company.name}}</p>
               <button href="#" class="btn btn-primary" (click)="getEmployStatus(student)">Get Data</button>
             </div>
         </div>
@@ -17,7 +16,7 @@
             <span>Type something:</span>
             <div class="mt-2">
                 <input type="text" [(ngModel)]="userInputName">
-                <button (click)="setUserName(userInputName)">Set Name</button>
+                <button class="btn btn-primary"(click)="setUserName(userInputName)">Set Name</button>
             </div>
             <div class="mt-2">
                 <span>Is employed:</span>
@@ -25,7 +24,7 @@
             </div>
             <div class="mt-2">
                 <span>Select:</span>
-                <select [(ngModel)]="student.salary">
+                <select [(ngModel)]="student.salary" class="ms-2">
                     <option selected default>Select minimum salary</option>
                     <option value="1000">1000+</option>
                     <option value="2500">2500+</option>
@@ -34,7 +33,9 @@
             </div>
         </div>
     </div>
-    <app-child [companyData]="student.company" (sentDataToParent)="receiveData($event)"></app-child>
+    <div>
+        <app-child [companyData]="student.company" (sentDataToParent)="receiveData($event)"></app-child>
+    </div>
 
 </div>
 

@@ -1,12 +1,11 @@
 <div class="details-block p-2">
     <h4>More Details: </h4>
     <div class="company-info">
-        <span>Company name: {{companyData.name}}</span>
-        <span>Phrase: {{companyData.catchPhrase}}</span>
+        <span><b>Company name:</b> {{companyData.name}}</span>
+        <span><b>Phrase:</b> {{companyData.catchPhrase}}</span>
     </div>
     <div>
         <input type="text" [(ngModel)]="newValue">
-        <button class="btn btn-primary"(click)="changeValue()">Edit</button>
-
+        <button class="btn btn-primary ms-2"(click)="changeValue()">Edit</button>
     </div>
 </div>
