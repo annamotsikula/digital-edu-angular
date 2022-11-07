@@ -1,0 +1,31 @@
+.description {
+    width: 680px;
+    .status {
+        padding: 1px 7px;
+        border-radius: 8px;
+        margin-left: 10px;
+        background-color: black;
+        span {
+            font-size: 10px;
+            color: white;
+        }
+    }
+}
+
+.bullet {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%
+}
+
+.men {
+    background-color: slateblue;
+}
+.women {
+    background-color: purple;
+}
+.jew {
+    background-color: goldenrod;
+}

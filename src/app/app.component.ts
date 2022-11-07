@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
 
 })
 export class AppComponent {
-  title = 'ng-project';
+
+  title = 'currENtly unavailable';
+  person = {
+    name: 'John',
+    lastName: 'Doe'
+  }
+  customNumber: number = 23.45676567;
+  date: Date = new Date();
 }

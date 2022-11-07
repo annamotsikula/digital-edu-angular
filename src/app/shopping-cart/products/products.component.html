@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let item of products">
+            <div class="card card-body mt-2" >
+                <div class="d-flex align-items-center justify-content-between text-lg-left flex-column flex-lg-row">
+                    <div class="mr-2 mb-3 mb-lg-0">
+                        <img [src]="item.image" width="150" height="150" alt="">
+                    </div>
+                    <div class="ms-2 description">
+                        <div class="d-flex">
+                            <h6 class="">
+                                <a href="#">{{item.title | titlecase}}</a>
+                            </h6>
+                            <div class="status" [ngStyle]="{'background-color' : item.inStock ? 'green' : 'red'}">
+                                <span class="">{{item.inStock ? 'Available' : 'Sold Out'}}</span>
+                            </div>
+                        </div>
+                        <div class="category d-flex align-items-center">
+                            <span class="bullet" [ngClass]="setClass(item.category)"></span>
+                            <span class="ms-2" >{{item.category}}</span>
+                        </div>
+                        <p class="mb-3 description-text">{{item.description | truncateText : 30 }}</p>
+                    </div>
+                    <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                        <h3 class="mb-0 font-weight-semibold">{{item.price | currency}}</h3>
+                        <div>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <div class="text-muted">{{item.rating.count}} reviews</div>
+                        <ng-container [ngSwitch]="item.inStock">
+                            <button type="button" class="btn btn-warning mt-4 text-white" *ngSwitchCase="true">
+                                <i class="bi bi-cart-plus"></i> 
+                                Add to cart
+                            </button>
+                            <span class="text-danger" *ngSwitchCase="false">! Sold Out</span>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>          
+        </ng-container>
+    </div>
+</div>
