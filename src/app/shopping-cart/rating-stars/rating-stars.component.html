@@ -1,0 +1,8 @@
+<span class="icon" 
+*ngFor="let star of starMaxNum"
+[ngClass]="star <= this.rateNumber ? 'fill' : '' "
+>
+    <i class="bi bi-star-fill" (click)="getRateNumber(star)"></i>
+</span>
+
+

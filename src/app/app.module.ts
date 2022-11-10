@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { ChildComponent } from './child/child.component';
 import { ProductsComponent } from './shopping-cart/products/products.component';
 import { TruncateStrPipe } from './shopping-cart/meta-data/truncate-str.pipe';
+import { ElementHighlighter } from './shopping-cart/meta-data/elemBackground.directive';
+import { RatingStarsComponent } from './shopping-cart/rating-stars/rating-stars.component';
+import { TodoListComponent } from './todo-app/todo-list/todo-list.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { TruncateStrPipe } from './shopping-cart/meta-data/truncate-str.pipe';
     ChildComponent,
     ProductsComponent,
     TruncateStrPipe,
+    ElementHighlighter,
+    RatingStarsComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
