@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ITodoList } from './todo.interface';
 
 @Injectable({
-  providedIn: 'root'
+ providedIn: 'root'
 })
 export class TodoService {
   private _todoList: ITodoList[] = [
@@ -11,13 +11,13 @@ export class TodoService {
       id: 1,
       title: 'delectus aut autem',
       completed: false
-      },
-      {
+    },
+    {
      
       id: 2,
       title: 'quis ut nam facilis et officia qui',
       completed: false
-      },
+    },
       {
       
       id: 3,
@@ -36,13 +36,17 @@ export class TodoService {
   getTodoList(): ITodoList[] {
     return this._todoList
   }
-
-  addTodoList(str: string) {
+  addTodoList(title: string) {
     const newTodo: ITodoList = {
       id: this._todoList.length + 1,
-      title: str,
+      title: title,
       completed: false
     }
-    this._todoList.unshift(newTodo);
+    this._todoList.unshift(newTodo)
+    console.log(this._todoList)
+  }
+  removeTodo(id:number) {
+    this._todoList = this._todoList.filter(todo => todo.id !== id)
+    console.log(this._todoList)
   }
 }

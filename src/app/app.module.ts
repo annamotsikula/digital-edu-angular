@@ -11,6 +11,7 @@ import { TruncateStrPipe } from './shopping-cart/meta-data/truncate-str.pipe';
 import { ElementHighlighter } from './shopping-cart/meta-data/elemBackground.directive';
 import { RatingStarsComponent } from './shopping-cart/rating-stars/rating-stars.component';
 import { TodoListComponent } from './todo-app/todo-list/todo-list.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TodoListComponent } from './todo-app/todo-list/todo-list.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

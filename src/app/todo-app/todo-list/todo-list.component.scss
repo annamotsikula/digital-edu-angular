@@ -7,3 +7,22 @@ ul {
     padding: 0;
     
 }
+li {
+    padding: 5px;
+    background-color: rgb(227, 235, 243);
+    margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+}
+input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+}
+.completed {
+    background-color: rgb(190, 255, 190);
+}
+.active {
+    background-color: rgb(248, 193, 141);
+}
