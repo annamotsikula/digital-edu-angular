@@ -4,23 +4,40 @@ import { Route, RouterModule } from '@angular/router';
 import { ProductsComponent } from './shopping-cart/products/products.component';
 import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './todo-app/todo-list/todo-list.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MainComponent } from './main/main.component';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 const ROUTES: Route[] = [
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login' ,
+    pathMatch: 'full'
   },
   {
-    path: 'products',
-    component: ProductsComponent,
+    path: 'register',
+    component: SignupComponent
   },
-  {
-    path: 'todo',
-    component: TodoListComponent
-  },
-  {
-    path: 'home',
-    redirectTo: ''
+  // {
+  //   path: 'products',
+  //   component: ProductsComponent,
+  // },
+  // {
+  //   path: 'todo',
+  //   component: TodoListComponent
+  // },
+  // {
+  //   path: 'home',
+  //   redirectTo: ''
+  // },
+  { 
+    path: '**',
+    component: PagenotfoundComponent
   }
   
 

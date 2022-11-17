@@ -12,23 +12,26 @@ import { ElementHighlighter } from './shopping-cart/meta-data/elemBackground.dir
 import { RatingStarsComponent } from './shopping-cart/rating-stars/rating-stars.component';
 import { TodoListComponent } from './todo-app/todo-list/todo-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MainComponent } from './main/main.component';
+import { MainModule } from './main/main.module';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    ChildComponent,
-    ProductsComponent,
-    TruncateStrPipe,
-    ElementHighlighter,
-    RatingStarsComponent,
-    TodoListComponent
+    MainComponent,
+    PagenotfoundComponent,
+    LoginComponent,
+    SignupComponent,
+
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
-    AppRoutingModule
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]
