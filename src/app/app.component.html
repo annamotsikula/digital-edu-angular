@@ -1,8 +1,23 @@
 <div class="container">
         <app-header></app-header>
         <div>Main Page Test</div>
-        <router-outlet></router-outlet>
-        <div>Footer here</div>
+
+
+
+        <div *ngFor="let num of randomNums">
+            <span>{{ num }} is </span>
+            <ng-container [ngSwitch]="num % 2">
+                <span *ngSwitchCase="1">კენტი</span>
+                <span *ngSwitchCase="0">ლუწი</span>
+            </ng-container>
+        </div>
+
+
+
+
+
+        <!-- <router-outlet></router-outlet> -->
+        <!-- <div>Footer here</div> -->
 </div>
 
     <!-- <app-home></app-home> -->
