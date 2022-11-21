@@ -1,6 +1,8 @@
-<div class="m-auto w-25 mt-4">
-    <h2>Log In Form</h2>
-    <div class="loginForm">
+<div class="login">
+    <div class="login-connect d-flex">
+      <h1 class="m-auto">Welcome</h1>
+    </div>
+    <div class="login-classic">
         <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="form">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -26,13 +28,10 @@
             <div class="mb-3">
                 <label for="number" class="form-label">Number</label>
                 <input type="number" class="form-control" ngModel name="phone" required>
-              </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">Submit</button>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">log in</button>
+            </div>
         </form>
-        <div>
-            Do not have an account?
-            <a  class="link" (click)="gotoRegister()">Sign In</a>
-        </div>
-
     </div>
 </div>
