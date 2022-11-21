@@ -28,7 +28,7 @@ export class AppComponent {
   constructor() {
     // this.stringArray.push('3')
     this.randomNums = this.generateNumArray(8);
-    console.log(this.randomNums)
+    // console.log(this.randomNums)
   }
   checkNum(num: number): boolean {
     if(num % 2 == 0) {

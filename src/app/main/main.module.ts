@@ -9,13 +9,16 @@ import { ElementHighlighter } from '../shopping-cart/meta-data/elemBackground.di
 import { RatingStarsComponent } from '../shopping-cart/rating-stars/rating-stars.component';
 import { TodoListComponent } from '../todo-app/todo-list/todo-list.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainRoutingModule } from './main-routing.module';
+import { SurveyFormComponent } from '../survey-form/survey-form.component';
+import { MainComponent } from './main.component';
 
 
 
 @NgModule({
   declarations: [
+    MainComponent,
     HomeComponent,
     HeaderComponent,
     ChildComponent,
@@ -24,21 +27,24 @@ import { MainRoutingModule } from './main-routing.module';
     ElementHighlighter,
     RatingStarsComponent,
     TodoListComponent,
+    SurveyFormComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MainRoutingModule
   ],
   exports: [
-    HomeComponent,
-    HeaderComponent,
-    ChildComponent,
-    ProductsComponent,
-    TruncateStrPipe,
-    ElementHighlighter,
-    RatingStarsComponent,
-    TodoListComponent,
+    // MainComponent,
+    // HomeComponent,
+    // HeaderComponent,
+    // ChildComponent,
+    // ProductsComponent,
+    // TruncateStrPipe,
+    // ElementHighlighter,
+    // RatingStarsComponent,
+    // TodoListComponent
   ]
 })
 export class MainModule { }

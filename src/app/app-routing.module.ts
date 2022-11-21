@@ -11,30 +11,22 @@ import { SignupComponent } from './auth/signup/signup.component';
 
 const ROUTES: Route[] = [
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
     path: '',
     redirectTo: 'login' ,
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
     path: 'register',
     component: SignupComponent
   },
-  // {
-  //   path: 'products',
-  //   component: ProductsComponent,
-  // },
-  // {
-  //   path: 'todo',
-  //   component: TodoListComponent
-  // },
-  // {
-  //   path: 'home',
-  //   redirectTo: ''
-  // },
+  {
+    path: 'main',
+    loadChildren: () => import('./main/main.module').then(m => m.MainModule)
+  },
   { 
     path: '**',
     component: PagenotfoundComponent

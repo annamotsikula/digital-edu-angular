@@ -1,0 +1,56 @@
+<div class="container-sm">
+    <div class="survey-form">
+        <h3 class="text-center">Survey Form</h3>
+        <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <label for=""  class="form-label">First Name</label>
+                <input type="text"  class="form-control" formControlName="firstName">
+                <div class="text-danger" *ngIf="!surveyForm.get('firstName')?.valid && surveyForm.get('firstName')?.touched">This field is required</div>
+            </div>
+            <div class="form-field">
+                <label for=""  class="form-label" >Last Name</label>
+                <input type="text"  class="form-control" placeholder="Type your last name" formControlName="lastName">
+                <div *ngIf="lastNameControl.errors">
+                    <div class="text-danger" *ngIf="lastNameControl.errors?.['minlength']">
+                       Last name should be {{ lastNameControl.errors?.['minlength'].requiredLength }}. 
+                    </div>
+                    <div class="text-danger" *ngIf="!lastNameControl.errors?.['required']">
+                        Required Field
+                     </div>
+                </div>
+            </div>
+            <div class="form-field">
+                <label for=""  class="form-label">Email</label>
+                <input type="text"  class="form-control" formControlName="email">
+            </div>
+            <div class="form-field"> 
+                <label for=""  class="form-label">Age</label>
+                <input type="text"  class="form-control" formControlName="age">
+            </div>
+            <div formGroupName="address">
+                <div class="form-field">
+                    <label for=""  class="form-label">Country</label>
+                    <input type="text"  class="form-control" formControlName="country">
+                </div>
+                <div class="form-field">
+                    <label for=""  class="form-label">City</label>
+                    <input type="text"  class="form-control" formControlName="city">
+                </div>
+            </div>
+            <div class="form-field">
+                <label for=""  class="form-label">Phone</label>
+                <input type="text"  class="form-control" formControlName="phone">
+            </div>
+            <div class="form-field">
+                <label for=""  class="form-label">Gender</label>
+                <select name="" id="" class="ms-2" formControlName="gender">
+                    <option value="m">Male</option>
+                    <option value="fm">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+
+    </div>
+</div>

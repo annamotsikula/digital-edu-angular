@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   ngOnInit(): void {
   }
   ngAfterViewInit(): void {
-    console.log(this.usrname.nativeElement.innerHTML)
+    // console.log(this.usrname.nativeElement.innerHTML)
   
   }
   getEmployStatus(student: IPerson) {
