@@ -10,11 +10,11 @@
             <div class="form-field">
                 <label for=""  class="form-label" >Last Name</label>
                 <input type="text"  class="form-control" placeholder="Type your last name" formControlName="lastName">
-                <div *ngIf="lastNameControl.errors">
+                <div *ngIf="surveyForm.invalid && (lastNameControl.touched || lastNameControl.dirty)">
                     <div class="text-danger" *ngIf="lastNameControl.errors?.['minlength']">
                        Last name should be {{ lastNameControl.errors?.['minlength'].requiredLength }}. 
                     </div>
-                    <div class="text-danger" *ngIf="!lastNameControl.errors?.['required']">
+                    <div class="text-danger" *ngIf="lastNameControl.errors?.['required']">
                         Required Field
                      </div>
                 </div>
@@ -26,6 +26,17 @@
             <div class="form-field"> 
                 <label for=""  class="form-label">Age</label>
                 <input type="text"  class="form-control" formControlName="age">
+            </div>
+            <div *ngIf="surveyForm.invalid && (age.touched || age.dirty)">
+                <div class="text-danger" *ngIf="age.errors?.['required']">
+                    This field is required
+                </div>
+                <div class="text-danger" *ngIf="age.errors?.['ageNotFit']">
+                    Number does not fit.
+                 </div>
+                 <div class="text-danger" *ngIf="age.errors?.['typeNotMatch']">
+                    Incorrect input type
+                 </div>
             </div>
             <div formGroupName="address">
                 <div class="form-field">
@@ -39,18 +50,30 @@
             </div>
             <div class="form-field">
                 <label for=""  class="form-label">Phone</label>
-                <input type="text"  class="form-control" formControlName="phone">
+                <div formArrayName="phone" > 
+                    <ng-container *ngFor="let item of phoneList['controls']; let i = index">
+                        <input type="text" class="form-control" formControlName="{{i}}" class="mt-2">
+                    </ng-container>
+                </div>
             </div>
-            <div class="form-field">
+            <div class="mt-2">
+                <a (click)="addNewPhoneControl()" class="add-control">+ Add another phone</a>
+            </div>
+            <div class="form-field mt-2">
                 <label for=""  class="form-label">Gender</label>
                 <select name="" id="" class="ms-2" formControlName="gender">
                     <option value="m">Male</option>
                     <option value="fm">Female</option>
                     <option value="other">Other</option>
                 </select>
+                <button type="button" class="btn btn-sm btn-danger" (click)="changeGender()">Change</button>
             </div>
-            <button type="submit">Submit</button>
+            <button type="button" class="btn btn-warning" (click)="setDefaultForm()">Set Default Value</button>
+            <button type="submit" class="btn btn-primary ms-2">Submit</button>
         </form>
 
+    </div>
+    <div>
+        {{surveyForm.value | json }}
     </div>
 </div>

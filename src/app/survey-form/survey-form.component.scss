@@ -1,3 +1,5 @@
+$backgroundBlue: rgb(53, 164, 215);
+$borderDanger: 1px solid red;;
 .survey-form {
     width: 300px;
     margin: auto;
@@ -6,5 +8,15 @@
 }
 
 input.ng-invalid.ng-touched {
-    border: 1px solid red;
+    border: $borderDanger
+}
+
+.add-control {
+    background-color: $backgroundBlue;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px 0;
+    cursor: pointer;
+    text-decoration: none;
 }

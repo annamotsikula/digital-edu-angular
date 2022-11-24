@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CrudService } from '../core/crud.service';
 import { IPerson } from './person.interface';
 
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   name: string = 'Angular Project has started.'
   student: IPerson;
   userInputName: string = '456789'
-  constructor() { 
+  constructor(private _service: CrudService) { 
   this.student =  {
     id: 2,
     name: "Ervin Howell",
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit(): void {
+    this._service.getPosts()
   }
   ngAfterViewInit(): void {
     // console.log(this.usrname.nativeElement.innerHTML)

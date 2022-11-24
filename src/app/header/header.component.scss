@@ -1,3 +1,14 @@
-.active {
-    background-color: rgb(131, 255, 214);
+.nav-item {
+    border-radius: 20px;
+    margin-left: 5px;
+    &:hover {
+        background-color: #2196f352;
+    }
 }
+        .active {
+            background-color:#1e88e5;
+            a{
+                color: white
+            }
+            
+        }

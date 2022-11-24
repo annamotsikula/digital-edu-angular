@@ -14,14 +14,14 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit(form: NgForm) {
-    if(form.valid) {
-      console.log('Form Submitted', form.value)
-      form.reset();
-      this._router.navigate(['/main/home'])
-
-    } else {
-      console.log('Not valid')
-    }
+    // if(form.valid) {
+    //   console.log('Form Submitted', form.value)
+    //   form.reset();
+      
+    // } else {
+    //   console.log('Not valid')
+    // }
+    this._router.navigate(['/main/home'])
   }
   gotoRegister() {
     this._router.navigate(['/register'])
