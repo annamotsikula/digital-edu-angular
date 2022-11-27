@@ -22,16 +22,13 @@ export class SurveyFormComponent implements OnInit {
         city: this._fb.control(null),
       }),
       phone: this._fb.array([
-        this._fb.control(null, Validators.required),
-        this._fb.control(null, Validators.required),
-        this._fb.control(null, Validators.required),
-
+        this._fb.control(null, Validators.required)
       ])
     })
   }
 
   ngOnInit(): void {
-    this.setDefaultForm()
+    // this.setDefaultForm()
     // console.log(this.surveyForm)
     console.log(this.phoneList['controls'])
   }
@@ -52,7 +49,7 @@ export class SurveyFormComponent implements OnInit {
         country: 'USA',
         city: 'Washigton',
       },
-      phone: ['0000000', '123456', '12345666']
+      phone: [null]
     })
   }
   changeGender() {
@@ -63,7 +60,7 @@ export class SurveyFormComponent implements OnInit {
     })
   }
   addNewPhoneControl() {
-    this.phoneList.push(this._fb.control('12530', Validators.required))
+    this.phoneList.push(this._fb.control(null, Validators.required))
 
   }
   get phoneList() {
