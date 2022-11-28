@@ -1,13 +1,16 @@
-export interface IProductCard {
+export interface IProduct {
     id: number,
     title: string,
     price: number,
+    discountPercentage: number,
     description: string,
     category: string,
-    image: string,
-    rating: IProductRating,
-    inStock: boolean,
-    qty: number,
+    images: string[],
+    rating: number,
+    stock: number,
+    thumbnail: string,
+    brand: string,
+    oldPrice?: number
 
 }
 export interface IProductRating {
@@ -19,4 +22,11 @@ export enum ICategory {
     WOMEN = "WOMEN",
     JEWELRY = "JEWELRY"
 
+}
+
+export interface IProductBaseReponse {
+    limit: number,
+    total: number,
+    skip: number,
+    products: IProduct[]
 }

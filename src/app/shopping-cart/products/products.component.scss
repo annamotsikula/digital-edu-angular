@@ -11,6 +11,12 @@
         }
     }
 }
+.title {
+    cursor: pointer;
+    &:hover {
+        opacity: 80%;
+    }
+}
 
 .bullet {
     display: block;
@@ -20,12 +26,6 @@
     border-radius: 50%
 }
 
-.men {
-    background-color: slateblue;
-}
-.women {
-    background-color: purple;
-}
-.jew {
-    background-color: goldenrod;
+.input-group {
+    width: 50%;
 }

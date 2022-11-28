@@ -9,9 +9,9 @@ export class CrudService {
     constructor(private _http: HttpClient) {
     }
 
-    getPosts(): Observable<IPost[]> {
-      return this._http.get<IPost[]>('https://jsonplaceholder.typicode.com/posts')
-    }
+    // getPosts(): Observable<IPost[]> {
+    //   return this._http.get<IPost[]>('https://jsonplaceholder.typicode.com/posts')
+    // }
 }
 
 

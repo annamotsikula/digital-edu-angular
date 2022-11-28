@@ -12,7 +12,7 @@ export class RatingStarsComponent implements OnInit {
   @Output() starRate: EventEmitter<number> = new EventEmitter<number>();
 
   starMaxNum!: number[]
-  rateNumber!: number;
+  @Input() rateNumber!: number;
   constructor() { }
 
   ngOnInit(): void {
@@ -20,6 +20,7 @@ export class RatingStarsComponent implements OnInit {
     for(let i=0; i<this.maxNum; i++) {
       this.starMaxNum.push(i+1)
     }
+    this.rateNumber = Math.round(this.rateNumber)
 
   }
 

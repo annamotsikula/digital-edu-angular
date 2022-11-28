@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainRoutingModule } from './main-routing.module';
 import { SurveyFormComponent } from '../survey-form/survey-form.component';
 import { MainComponent } from './main.component';
+import { ProductDetailsComponent } from '../shopping-cart/product-details/product-details.component';
 
 
 
@@ -28,6 +29,7 @@ import { MainComponent } from './main.component';
     RatingStarsComponent,
     TodoListComponent,
     SurveyFormComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     CommonModule,

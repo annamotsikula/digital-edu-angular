@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit(): void {
-    this._service.getPosts()
+    // this._service.getPosts()
   }
   ngAfterViewInit(): void {
     // console.log(this.usrname.nativeElement.innerHTML)

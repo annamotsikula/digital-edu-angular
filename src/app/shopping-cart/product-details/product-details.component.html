@@ -1,0 +1,23 @@
+<div class="wrapper row" *ngIf="product">
+    <div class="preview col-md-6">
+        <div class="preview-pic tab-content">
+          <div><img [src]="product.thumbnail" alt="main-img"/></div>
+        </div>
+        <ul class="preview-thumbnail nav nav-tabs">
+          <li *ngFor="let img of product.images"><img [src]="img" alt='img'/></li>
+        </ul>
+    </div>
+    <div class="details col-md-6">
+        <h3 class="product-title">{{product.title}}</h3>
+        <p class="product-description">{{product.description}}</p>
+        <span>{{product.category}}</span>
+        <h4 class="price">
+            price: 
+            <span>{{product.price | currency }}</span>
+            <span class="me-2 oldPrice">{{product.oldPrice | currency: 'USD' : 'symbol' : '1.0-1' }}</span>
+        </h4>
+        <div class="action">
+            <button class="add-to-cart btn btn-default" type="button"><i class="bi bi-cart me-2"></i>Add to cart</button>
+        </div>
+    </div>
+</div>

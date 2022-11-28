@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { HomeComponent } from "../home/home.component";
+import { ProductDetailsComponent } from "../shopping-cart/product-details/product-details.component";
 import { ProductsComponent } from "../shopping-cart/products/products.component";
 import { SurveyFormComponent } from "../survey-form/survey-form.component";
 import { TodoListComponent } from "../todo-app/todo-list/todo-list.component";
@@ -20,6 +21,11 @@ const ROUTES: Route[] = [
         path: 'products',
         component: ProductsComponent
       },
+      {
+        path: 'products/:id',
+        component: ProductDetailsComponent
+      },
+
       {
         path: 'todo',
         component: TodoListComponent

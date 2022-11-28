@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ICategory, IProductCard } from '../meta-data/product.interface';
+import { Router } from '@angular/router';
+import { ICategory, IProduct } from '../meta-data/product.interface';
 import { ProductService } from '../meta-data/products.service';
 
 @Component({
@@ -9,15 +10,15 @@ import { ProductService } from '../meta-data/products.service';
   
 })
 export class ProductsComponent implements OnInit {
-  products: IProductCard[] = [];
-  getValue: any
-  constructor(private _service: ProductService) {
-   this.products = this._service.getProductList()
+  products: IProduct[] = [];
+  getValue: any;
+  searchKey: string = ''
+  constructor(private _service: ProductService, private _router: Router) {
   }
 
   ngOnInit(): void {
-    console.log(this.products)
-    console.log(ICategory.JEWELRY)
+    this.getProducts()
+
   }
   setClass(cat: string): string {
     let className: string = ''
@@ -40,5 +41,20 @@ export class ProductsComponent implements OnInit {
 
   getRating(result: number) {
     console.log(`This product has ${result} stars`)
+  }
+  redirectToDetails(productID: number) {
+    this._router.navigate(['main/products', productID])
+  }
+  getProducts() {
+    this._service.getProductList().subscribe(result => {
+      this.products = result
+     })
+  }
+  getResults() {
+      console.log('do search')
+      this._service.searchForData(this.searchKey).subscribe(data => {
+        this.products = data
+      })
+    
   }
 }

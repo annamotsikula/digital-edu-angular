@@ -1,5 +1,6 @@
 import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { debounceTime, filter, map, Observable, of, tap } from 'rxjs';
 import { TodoService } from './todo-app/data-model/todo-service.service';
 interface IPerson {
   name: string,
@@ -11,34 +12,18 @@ interface IPerson {
   styleUrls: ['./app.component.scss']
 
 })
-export class AppComponent {
-  title = 'currENtly unavailable';
-  person: IPerson = 
-  {
-    name: 'John',
-    lastName: 'Doe'
-  }
-  customNumber: number = 23.45676567;
-  date: Date = new Date();
-  randomNums: number[] = []
-  // array of strings 
-  numArray: number[] = [23, 12, 1 , 5 , 709, 45, 34, 39]
-  
-
-  constructor() {
-    // this.stringArray.push('3')
-    this.randomNums = this.generateNumArray(8);
-    // console.log(this.randomNums)
-  }
-  checkNum(num: number): boolean {
-    if(num % 2 == 0) {
-      return true
-    } 
-    return false
+export class AppComponent implements OnInit {
+ 
+  testObservable$: Observable<any> = of(24, 50, 520, 89, 10, 1, 96)
+  constructor() {}
+ 
+  ngOnInit(): void {
+    this.testObservable$.pipe(
+      filter(num => num > 50),
+      tap(p => console.log(p)),
+      map(x => x * 10)
+    )
+    .subscribe(num => console.log('Value is:  ', num))
   }
 
-  generateNumArray(len: number): number[] {
-    return Array.from({length: len}, () =>  Math.floor(Math.random() * 100))
-   
-  }
 }
