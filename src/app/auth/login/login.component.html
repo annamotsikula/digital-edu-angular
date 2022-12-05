@@ -3,34 +3,23 @@
       <h1 class="m-auto">Welcome</h1>
     </div>
     <div class="login-classic">
-        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="form">
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" ngModel name="userName" #userName="ngModel" required>
-                <div *ngIf="!userName.valid && userName.touched">
-                    <span class="text-danger">Name is required</span>
-                </div>
-            </div>
+        <form [formGroup]="authForm" (submit)="onSubmit()" class="form">
             <div class="mb-3">
               <label for="email" class="form-label">Email address</label>
-              <input type="email" class="form-control" ngModel name="emailadd" #emailAddress="ngModel" required>
+              <input type="email" class="form-control" formControlName="email"  name="emailadd">
             </div>
-            <div *ngIf="!emailAddress.valid && emailAddress.touched">
+            <div *ngIf="!authForm.controls['email'].valid && authForm.controls['email'].touched">
                 <span class="text-danger">Email is required</span>
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" ngModel name="password"  #password="ngModel" required>
+              <input type="password" class="form-control"  name="password" formControlName="pwd" >
             </div>
-            <div *ngIf="!password.valid && password.touched">
+            <div *ngIf="!authForm.controls['pwd'].valid && authForm.controls['pwd'].touched">
                 <span class="text-danger">Password is required</span>
             </div>
-            <div class="mb-3">
-                <label for="number" class="form-label">Number</label>
-                <input type="number" class="form-control" ngModel name="phone" required>
-            </div>
             <div>
-                <button type="submit" class="btn btn-primary">continue</button>
+                <button type="submit" class="btn btn-primary">sign in</button>
             </div>
         </form>
     </div>

@@ -8,8 +8,8 @@
       <li class="nav-item" routerLinkActive="active"><a routerLink="./products" class="nav-link">Products</a></li>
       <li class="nav-item" routerLinkActive="active"><a routerLink="./todo" class="nav-link">To-Do</a></li>
       <li class="nav-item" routerLinkActive="active"><a routerLink="./survey" class="nav-link">Survey</a></li>
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a routerLink="/" class="nav-link" >
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onLogOut()">
+        <a class="nav-link" >
           <i class="bi bi-box-arrow-left"></i>
         </a>
       </li>
