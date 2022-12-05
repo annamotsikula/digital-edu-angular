@@ -8,7 +8,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MainModule } from './main/main.module';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { TokenInterceptor } from './core/auth-token.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,13 @@ import { HttpClientModule } from '@angular/common/http'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

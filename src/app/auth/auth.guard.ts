@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
       if(!this._authService.isAuthorized()) {
         console.log('Not Authorized user')
         this._router.navigate(['/']);
-        return false;
+        // return false;
       }
     return true;
   }
