@@ -30,3 +30,12 @@ export interface IProductBaseReponse {
     skip: number,
     products: IProduct[]
 }
+
+export interface IAddProduct { 
+    id: string
+}
+
+export interface IDeletedProduct extends IProduct {
+    isDeleted: boolean,
+    deletedOn: string
+}

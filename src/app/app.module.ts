@@ -10,6 +10,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { TokenInterceptor } from './core/auth-token.interceptor';
+import { provideRoutes } from '@angular/router';
+import { CacheDataInterceptor } from './core/cache.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,11 @@ import { TokenInterceptor } from './core/auth-token.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheDataInterceptor,
       multi: true
     }
   ],

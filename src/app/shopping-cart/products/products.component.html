@@ -3,8 +3,14 @@
     <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="search for products..." [(ngModel)]="searchKey" >
         <button class="btn btn-primary" type="button" id="button-addon2" (click)="getResults()">Search</button>
-        </div>
-   
+    </div>
+    <div>
+        <button class="btn" (click)="showForm = !showForm">{{ showForm ? 'Close' : '+ Add Product'}}</button>
+    </div>
+    <div class="" *ngIf="showForm" [formGroup]="addProductForm">
+        <span class="ms-2 ">Add details</span>
+        <input type="text" formControlName="productTitle" (keyup.enter)="addProduct()">
+    </div>
     <div class="row">
         <ng-container *ngFor="let item of products">
             <div class="card card-body mt-2" >
@@ -30,6 +36,9 @@
                             <app-rating-stars [maxNum]="5" [rateNumber]="item.rating" (starRate)="getRating($event)"></app-rating-stars>
                         </div>
                         <div class="text-muted">Rating {{item.rating}} </div>
+                        <div class="mt-2">
+                            <button (click)="delete(item)">Delete</button>
+                        </div>
                         <!-- <ng-container [ngSwitch]="item.inStock">
                             <button type="button" class="btn btn-warning mt-4 text-white" *ngSwitchCase="true">
                                 <i class="bi bi-cart-plus"></i> 
@@ -42,4 +51,8 @@
             </div>          
         </ng-container>
     </div>
+    <div *ngIf="!products.length">
+        Loading...
+    </div>
+    
 </div>

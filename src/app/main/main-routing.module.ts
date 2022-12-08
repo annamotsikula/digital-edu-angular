@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
 import { AuthGuard } from "../auth/auth.guard";
 import { HomeComponent } from "../home/home.component";
+import { ProductResolver } from "../shopping-cart/meta-data/product.resolver";
 import { ProductDetailsComponent } from "../shopping-cart/product-details/product-details.component";
 import { ProductsComponent } from "../shopping-cart/products/products.component";
 import { SurveyFormComponent } from "../survey-form/survey-form.component";
@@ -14,18 +15,19 @@ const ROUTES: Route[] = [
     component: MainComponent,
     canActivate: [AuthGuard],
     children: [
-      {
-        path: 'home',
-        component: HomeComponent,
-        pathMatch: 'full',
-      },
+      // {
+      //   path: 'home',
+      //   component: HomeComponent,
+      //   pathMatch: 'full',
+      // },
       {
         path: 'products',
         component: ProductsComponent
       },
       {
         path: 'products/:id',
-        component: ProductDetailsComponent
+        component: ProductDetailsComponent,
+        resolve: { singleProduct: ProductResolver }
       },
 
       {

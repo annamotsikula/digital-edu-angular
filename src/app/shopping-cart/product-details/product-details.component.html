@@ -1,5 +1,8 @@
 <div class="wrapper row" *ngIf="product">
     <div class="preview col-md-6">
+        <div class="mt-2 mb-2">
+            <button class="btn btn-outline-primary" (click)="returnToProducts()"> <i class="bi bi-arrow-left"></i> </button>
+        </div>
         <div class="preview-pic tab-content">
           <div><img [src]="product.thumbnail" alt="main-img"/></div>
         </div>

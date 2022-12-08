@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     if(this.authForm.valid) {
       console.log('Form Submitted', this.authForm.value)
       this._auth.authUser(this.authForm.value).subscribe(() => {
-        this._router.navigate(['/main/home'])
+        this._router.navigate(['/main/products'])
       })
       
     } else {
